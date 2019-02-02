@@ -1,7 +1,4 @@
 var display = document.getElementById("display")
-var operandos = {
-      operador: "",operadorAnt: "",numAnt: 0
-    }
 
 var calculadora = {
   init: function(){
@@ -25,9 +22,17 @@ var calculadora = {
     var menos = document.getElementById('menos')
     var mas = document.getElementById('mas')
     var igual = document.getElementById('igual')
+    var dotCount = true;
+    var signoMenos = true;
 
+
+/*--- Botones ---*/
     cero.addEventListener("click",function(){
-      console.log("hice click en 0")
+      if (display.innerHTML === "0"){
+        display.textContent = "0";}
+        else{
+        display.textContent += 0}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     cero.addEventListener("mousedown", function(){
       cero.setAttribute("style","transform:scale(0.95,0.95)")
@@ -37,7 +42,11 @@ var calculadora = {
     })
 
     uno.addEventListener("click",function(){
-      console.log("hice click en 1")
+      if (display.innerHTML === "0"){
+        display.textContent = "1";}
+        else{
+        display.textContent += 1}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     uno.addEventListener("mousedown", function(){
       uno.setAttribute("style","transform:scale(0.95,0.95)")
@@ -47,7 +56,11 @@ var calculadora = {
     })
 
     dos.addEventListener("click",function(){
-      console.log("hice click en 2")
+      if (display.innerHTML === "0"){
+        display.textContent = "2";}
+        else{
+        display.textContent += 2}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     dos.addEventListener("mousedown", function(){
       dos.setAttribute("style","transform:scale(0.95,0.95)")
@@ -57,7 +70,11 @@ var calculadora = {
     })
 
     tres.addEventListener("click",function(){
-      console.log("hice click en 3")
+      if (display.innerHTML === "0"){
+        display.textContent = "3";}
+        else{
+        display.textContent += 3}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     tres.addEventListener("mousedown", function(){
       tres.setAttribute("style","transform:scale(0.95,0.95)")
@@ -67,7 +84,11 @@ var calculadora = {
     })
 
     cuatro.addEventListener("click",function(){
-      console.log("hice click en 4")
+      if (display.innerHTML === "0"){
+        display.textContent = "4";}
+        else{
+        display.textContent += 4}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     cuatro.addEventListener("mousedown", function(){
       cuatro.setAttribute("style","transform:scale(0.95,0.95)")
@@ -77,7 +98,11 @@ var calculadora = {
     })
 
     cinco.addEventListener("click",function(){
-      console.log("hice click en 5")
+      if (display.innerHTML === "0"){
+        display.textContent = "5";}
+        else{
+        display.textContent += 5}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     cinco.addEventListener("mousedown", function(){
       cinco.setAttribute("style","transform:scale(0.95,0.95)")
@@ -87,7 +112,11 @@ var calculadora = {
     })
 
     seis.addEventListener("click",function(){
-      console.log("hice click en 6")
+      if (display.innerHTML === "0"){
+        display.textContent = "6";}
+        else{
+        display.textContent += 6}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     seis.addEventListener("mousedown", function(){
       seis.setAttribute("style","transform:scale(0.95,0.95)")
@@ -97,7 +126,11 @@ var calculadora = {
     })
 
     siete.addEventListener("click",function(){
-      console.log("hice click en 7")
+      if (display.innerHTML === "0"){
+        display.textContent = "7";}
+        else{
+        display.textContent += 7}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     siete.addEventListener("mousedown", function(){
       siete.setAttribute("style","transform:scale(0.95,0.95)")
@@ -107,7 +140,11 @@ var calculadora = {
     })
 
     ocho.addEventListener("click",function(){
-      console.log("hice click en 8")
+      if (display.innerHTML === "0"){
+        display.textContent = "8";}
+        else{
+        display.textContent += 8}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     ocho.addEventListener("mousedown", function(){
       ocho.setAttribute("style","transform:scale(0.95,0.95)")
@@ -117,7 +154,11 @@ var calculadora = {
     })
 
     nueve.addEventListener("click",function(){
-      console.log("hice click en 9")
+      if (display.innerHTML === "0"){
+        display.textContent = "9";}
+        else{
+        display.textContent += 9}
+        display.innerHTML = display.innerHTML.substring(0, 8);
     })
     nueve.addEventListener("mousedown", function(){
       nueve.setAttribute("style","transform:scale(0.95,0.95)")
@@ -127,7 +168,10 @@ var calculadora = {
     })
 
     punto.addEventListener("click",function(){
-      console.log("hice click en .")
+      if (dotCount) {
+          display.innerHTML = display.innerHTML + ".";
+          dotCount = false;
+          }
     })
     punto.addEventListener("mousedown", function(){
       punto.setAttribute("style","transform:scale(0.95,0.95)")
@@ -137,7 +181,9 @@ var calculadora = {
     })
 
     on.addEventListener("click",function(){
-      console.log("hice click en on")
+      display.textContent = 0;
+      dotCount = true;
+      signoMenos = true;
     })
     on.addEventListener("mousedown", function(){
       on.setAttribute("style","transform:scale(0.95,0.95)")
@@ -147,7 +193,12 @@ var calculadora = {
     })
 
     sign.addEventListener("click",function(){
-      console.log("hice click en sign")
+      if (display.innerHTML === "0"){
+        signoMenos = false;
+      }
+      else {
+          display.innerHTML = -(display.innerHTML);
+          }
     })
     sign.addEventListener("mousedown", function(){
       sign.setAttribute("style","transform:scale(0.95,0.95)")
@@ -167,7 +218,12 @@ var calculadora = {
     })
 
     div.addEventListener("click",function(){
-      console.log("hice click en dividir")
+      valorPendiente = display.innerHTML;
+      display.innerHTML = " ";
+      evalStringArray.push(valorPendiente);
+      evalStringArray.push("/");
+      dotCount = true;
+      signoMenos = true;
     })
     div.addEventListener("mousedown", function(){
       div.setAttribute("style","transform:scale(0.95,0.95)")
@@ -177,7 +233,12 @@ var calculadora = {
     })
 
     por.addEventListener("click",function(){
-      console.log("hice click en X")
+      valorPendiente = display.innerHTML;
+      display.innerHTML = " ";
+      evalStringArray.push(valorPendiente);
+      evalStringArray.push("*");
+      dotCount = true;
+      signoMenos = true;
     })
     por.addEventListener("mousedown", function(){
       por.setAttribute("style","transform:scale(0.95,0.95)")
@@ -187,7 +248,12 @@ var calculadora = {
     })
 
     menos.addEventListener("click",function(){
-      console.log("hice click en -")
+      valorPendiente = display.innerHTML;
+      display.innerHTML = " ";
+      evalStringArray.push(valorPendiente);
+      evalStringArray.push("-");
+      dotCount = true;
+      signoMenos = true;
     })
     menos.addEventListener("mousedown", function(){
       menos.setAttribute("style","transform:scale(0.95,0.95)")
@@ -197,7 +263,12 @@ var calculadora = {
     })
 
     mas.addEventListener("click",function(){
-      console.log("hice click en +")
+      valorPendiente = display.innerHTML;
+      display.innerHTML = " ";
+      evalStringArray.push(valorPendiente);
+      evalStringArray.push("+");
+      dotCount = true;
+      signoMenos = true;
     })
     mas.addEventListener("mousedown", function(){
       mas.setAttribute("style","transform:scale(0.95,0.95)")
@@ -207,7 +278,11 @@ var calculadora = {
     })
 
     igual.addEventListener("click",function(){
-      console.log("hice click en =")
+      evalStringArray.push(display.innerHTML);
+      var resultado = eval(evalStringArray.join(' '));
+      display.innerText = resultado;
+      evalStringArray = [];
+      display.innerHTML = display.innerHTML.substring(0, 8);
     })
     igual.addEventListener("mousedown", function(){
       igual.setAttribute("style","transform:scale(0.95,0.95)")
@@ -215,6 +290,11 @@ var calculadora = {
     igual.addEventListener("mouseup", function(){
       igual.setAttribute("style","transform:scale(1,1)")
     })
+
+/*--- Operaciones ---*/
+  var valorPendiente;
+  var evalStringArray = [];
+
   }
 }
 
